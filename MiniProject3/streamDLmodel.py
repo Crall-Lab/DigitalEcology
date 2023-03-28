@@ -31,7 +31,7 @@ onlyBirds = args.birds
 inclusionThreshold = float(args.threshold)
 no_saved_stills = args.no_saved_stills
 if float(inclusionThreshold) > 1:inclusionThreshold/=100
-
+displayWindow = args.displayWindow
 
 
 #### Loading in models based on command line arguments ####
@@ -169,7 +169,8 @@ while True: #Keep running forever
         if ccs[-3] > inclusionThreshold:
             cv.putText(frame,'3 - '+lbl3+': %s'%ccs[-3]+'% confidence',(int(imWidth*0.15),int(imHeight*0.22)),font,fontScale=(0.5*(imageResolution[0]/640)),color=(125,55,235),thickness=1)
         cv.putText(frame,'fps: %s '%np.round(1/fpsFinal,3),(int(imWidth*0.15),int(imHeight*0.08)),font,fontScale=(0.5*(imageResolution[0]/640)),color=(125,55,235),thickness=1)
-        cv.imshow('output', frame)
+        if not displayWindow:
+            cv.imshow('output', frame)
         
         if iConf > inclusionThreshold:
             tname = datetime.datetime.now()
@@ -211,7 +212,8 @@ while True: #Keep running forever
             scre = t.copy()
             
         frame = utils.visualize(frame,predictions[0],labelsDetect[0],labels,scre[0],(imHeight,imWidth),inclusionThreshold)
-        cv.imshow('output', frame)
+        if not displayWindow:
+            cv.imshow('output', frame)
         
         mConf = scre[0][0]
         classification_label = labels[int(labelsDetect[0][0])]
