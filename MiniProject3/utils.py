@@ -106,5 +106,8 @@ def cmdline_run():
     parser.add_argument(
         '-v', '--videoSample', default=False, action='store_true',
         help='Run selected model across example video, creates new csv')
+    parser.add_argument(
+        '-w', '--displayWindow', default=False, action='store_true',
+        help='Turn off the output display window')
     args = parser.parse_args()
     return args
