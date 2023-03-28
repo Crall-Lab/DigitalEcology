@@ -90,7 +90,7 @@ cap.set(attr,30)
 
 if args.videoSample:
     cap.release()
-    cap = cv.VideoCapture('/home/pi/DigitalEcologyDL/MiniProject3/birdExample.mp4')
+    cap = cv.VideoCapture('/home/pi/DigitalEcologyDL/MiniProject3/birdExample2.mp4')
 
 # Create the directory to save detections
 tempDateName = utils.detectionsFolderCreate()
