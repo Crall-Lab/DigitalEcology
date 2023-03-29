@@ -37,24 +37,24 @@ displayWindow = args.displayWindow
 #### Loading in models based on command line arguments ####
 
 # Setting directory paths for models and corresponding labels
-data_folder = "/home/pi/DigitalEcologyDL/MiniProject3/models/"
+data_folder = "/home/pi/DigitalEcology/MiniProject3/models/"
 if not detectModel:
     if not onlyBirds:
         model_path = data_folder + "lite-model_imagenet_mobilenet_v3_large_075_224_classification_5_metadata_1.tflite"
-        labels = utils.load_labels("/home/pi/DigitalEcologyDL/MiniProject3/labels/imageNetLabels.txt")
+        labels = utils.load_labels("/home/pi/DigitalEcology/MiniProject3/labels/imageNetLabels.txt")
     else:
         model_path = data_folder + "mobileV2_fullTrain_aves_model.tflite"
-        labels = utils.load_labels("/home/pi/DigitalEcologyDL/MiniProject3/labels/mobileV2_aves_labels.txt")
+        labels = utils.load_labels("/home/pi/DigitalEcology/MiniProject3/labels/mobileV2_aves_labels.txt")
 
 elif detectModel == True:
     if not onlyBirds:
         model_path = data_folder + "lite-model_efficientdet_lite1_detection_metadata_1.tflite"
-        labels = utils.load_labels("/home/pi/DigitalEcologyDL/MiniProject3/labels/coco-labels-paper.txt")
+        labels = utils.load_labels("/home/pi/DigitalEcology/MiniProject3/labels/coco-labels-paper.txt")
     else:
         #model_path = data_folder + "efficientDet_fullTrain_aves_model.tflite"
-        #labels = utils.load_labels("/home/pi/DigitalEcologyDL/MiniProject3/labels/mobileV2_aves_labels.txt")
+        #labels = utils.load_labels("/home/pi/DigitalEcology/MiniProject3/labels/mobileV2_aves_labels.txt")
         model_path = data_folder + "efficientdet-lite_320x320_aves_150.tflite"
-        labels = utils.load_labels("/home/pi/DigitalEcologyDL/MiniProject3/labels/efficientdet-lite_320x320_aves_150-labels.txt")
+        labels = utils.load_labels("/home/pi/DigitalEcology/MiniProject3/labels/efficientdet-lite_320x320_aves_150-labels.txt")
 interpreter = Interpreter(model_path)
 print("Model Loaded Successfully.")
 interpreter.allocate_tensors()
@@ -90,7 +90,7 @@ cap.set(attr,30)
 
 if args.videoSample:
     cap.release()
-    cap = cv.VideoCapture('/home/pi/DigitalEcologyDL/MiniProject3/birdExample2.mp4')
+    cap = cv.VideoCapture('/home/pi/DigitalEcology/MiniProject3/birdExample2.mp4')
 
 # Create the directory to save detections
 tempDateName = utils.detectionsFolderCreate()
