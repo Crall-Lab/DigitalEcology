@@ -51,8 +51,8 @@ elif detectModel == True:
         model_path = data_folder + "lite-model_efficientdet_lite1_detection_metadata_1.tflite"
         labels = utils.load_labels("/home/pi/DigitalEcology/MiniProject3/labels/coco-labels-paper.txt")
     else:
-        model_path = data_folder + "efficientDet_fullTrain_aves_model_III.tflite"
-        labels = utils.load_labels("/home/pi/DigitalEcology/MiniProject3/labels/efficientDet_fullTrain_aves_labels_III.txt")
+        model_path = data_folder + "efficientDet_fullTrain_aves_model_X.tflite"
+        labels = utils.load_labels("/home/pi/DigitalEcology/MiniProject3/labels/efficientDet_fullTrain_aves_labels_Xc.txt")
         #model_path = data_folder + "efficientdet-lite_320x320_aves_150.tflite"
         #labels = utils.load_labels("/home/pi/DigitalEcology/MiniProject3/labels/efficientdet-lite_320x320_aves_150-labels.txt")
 interpreter = Interpreter(model_path)
